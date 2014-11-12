@@ -1,0 +1,23 @@
+<%= form_for @shoe do |f| %>
+  <div class="input-group">
+    <%= f.label :name, class: 'input-group-addon' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="input-group">
+    <%= f.label :brand, class: 'input-group-addon' %>
+    <%= f.text_field :brand, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="input-group">
+    <%= f.label :price, class: 'input-group-addon' %>
+    <%= f.text_field :price, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="input-group">
+    <%= f.label :link, class: 'input-group-addon' %>
+    <%= f.text_field :link, class: 'form-control' %>
+  </div>
+  <br>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

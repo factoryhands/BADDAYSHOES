@@ -1,0 +1,8 @@
+<br>
+<div class="row text-center">
+  <% @shoes.each do |shoe| %>
+    <div class="col-md-4">
+      <%= image_tag(shoe['300x400'].first['url']) %>
+    </div>
+<% end %>
+</div>

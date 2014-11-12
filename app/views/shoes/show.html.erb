@@ -1,0 +1,12 @@
+<h2 class='text-center'><%= @shoe.name %></h2>
+<hr>
+<br>
+<div class="row">
+  <div class="text-center">
+
+  <h4>Shoes:</h4>
+  <%= sales_array %>
+  <% end %>
+
+  <%= link_to 'Edit', edit_shoe_path(@shoe) %> | <%= link_to 'Destroy', shoe_path(@shoe), method: :delete %>
+</div>

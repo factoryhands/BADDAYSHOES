@@ -1,0 +1,95 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ *= require_self
+ *= require_tree 
+
+ */
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ body {
+  margin: 0;
+ }
+
+img {
+  max-width: 100%;
+}
+
+.image-wrapper{
+  max-width: 300px;
+  max-height: 300px;
+  float: left;
+}
+
+.home-wrapper{
+  margin: 0;
+  font-family: Helvetica;
+  color: #FFFFFF;
+  font-size: 7px;
+
+  h1{
+    text-align: center;
+  }
+  
+  .logo {
+    width: 161px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+  }
+}
+
+#homepage {
+  background: #000000;
+  font-family: 'Helvetica';
+}
+
+.header-wrapper{
+  max-width: 300px;
+  max-height: 300px;
+  float: left;
+}
+
+.header {
+  font-family: 'Helvetica';
+  font-size: 52px;
+  top: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #FFFFFF;
+}
+
+.photo {
+  // width: 29%;
+  width: 200px;
+  margin: 2%;
+  float: left;
+  height: 200px;
+  overflow: hidden;
+}
+img {
+  float: left;
+}
+
+

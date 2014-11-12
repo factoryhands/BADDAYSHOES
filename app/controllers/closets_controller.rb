@@ -1,0 +1,3 @@
+class ClosetsController < ApplicationController
+
+end
