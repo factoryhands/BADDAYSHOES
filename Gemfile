@@ -48,6 +48,8 @@ gem 'binding_of_caller', groups: :development
 # GILT library
 gem 'gilt'
 
+gem 'rest_client'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

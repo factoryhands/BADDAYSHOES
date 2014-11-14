@@ -2,33 +2,31 @@ class Shoe < ActiveRecord::Base
   # has_and_belongs_to_many :users
   belongs_to :closets
 
-  #method to grab heels
-  def self.get_active_sales
-    active_sales = Gilt::Sale.active :apikey => ENV['GILT_ID']
-    womens_sales = active_sales.select {|sale| sale.store == Gilt::Stores::WOMEN }
-    womens_sales.take(10).map(&:products).flatten.select { |product| product.description.include? 'shoe' }.map(&:images)
-    # return if categories = "shoes"
+  #method to grab pumps
+  def self.get_shoes
+    @shoe_photos=[]
+    query = 'shoe'
+    store = 'women'
+    @endpoint_url = "https://api.gilt.com/v1/products?apikey=#{ENV["GILT_ID"]}&q=#{query}&store=#{store}"
+    response = RestClient.get(@endpoint_url)
+    parsed_response = JSON.parse(response)
   end
 
+  def self.get_images
+    get_shoes["products"].map do |shoe|
+      photos = shoe["image_urls"]["300x400"][0]["url"]
+    end
+  end
 
-# #method to grab boots
-#   def self.get_active_sales
-#     active_sales = Gilt::Sale.active :apikey => ENV['GILT_ID']
-#     womens_sales = active_sales.select {|sale| sale.store == Gilt::Stores::WOMEN }
-#     # active_sales.first.products.map(&:images)
-#     images = womens_sales.first.products.map(&:images)
-#     return images
-#     # return if categories = "shoes"
-#   end
-
-  # #method to grab expensive shoes
-  # def self.get_active_sales
-  #   active_sales = Gilt::Sale.active :apikey => ENV['GILT_ID']
-  #   womens_sales = active_sales.select {|sale| sale.store == Gilt::Stores::WOMEN }
-  #   # active_sales.first.products.map(&:images)
-  #   images = womens_sales.first.products.map(&:images)
-  #   return images
-  #   # return if categories = "shoes"
-  # end
+  def self.get_type(shoe_type)
+    collection = []
+    get_shoes["products"].map do |shoe|
+      pump = shoe["content"]["description"]
+      if pump.include? shoe_type
+        collection << shoe["image_urls"]["300x400"][0]["url"]
+      end
+    end
+    collection
+  end
 
 end

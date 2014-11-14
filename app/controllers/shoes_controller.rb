@@ -1,7 +1,7 @@
 class ShoesController < ApplicationController
 
   def index
-    @shoes = Shoe.get_active_sales
+    @shoes = Shoe.get_type(params[:shoe_type])
   end
 
   def show
